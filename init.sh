@@ -4,6 +4,11 @@ apt update
 apt upgrade -y
 apt install -y tzdata curl wget git nano sudo net-tools xz-utils xzip b3sum xxhash unzip
 
+chmod +x ${SRC}/nvm_install.sh
+./nvm_install.sh
+\. "$HOME/.nvm/nvm.sh"
+nvm install 24
+
 apt install -y nginx-full
 apt install -y php-fpm php-cli php-pgsql php-gd php-curl php-mbstring php-json php-xml php-zip php-date php-readline php-bz2 
 
@@ -15,9 +20,3 @@ apt update
 apt install -y postgresql-16-pgroonga
 
 apt install -y ffmpeg
-
-./nvm_install.sh
-
-chmod +x ${SRC}/nvm_install.sh
-\. "$HOME/.nvm/nvm.sh"
-nvm install 24
