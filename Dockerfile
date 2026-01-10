@@ -19,8 +19,6 @@ COPY . .
 
 
 RUN chmod +x ${SRC}/init.sh && \
-    chmod +x ${SRC}/nvm_install.sh && \
-    ${SRC}/nvm_install.sh && \
     ${SRC}/init.sh
 
 USER root

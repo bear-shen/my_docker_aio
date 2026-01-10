@@ -1,8 +1,5 @@
 #!/bin/bash
 
-\. "$HOME/.nvm/nvm.sh"
-nvm install 24
-
 apt update
 apt upgrade -y
 apt install -y tzdata curl wget git nano sudo net-tools xz-utils xzip b3sum xxhash unzip
@@ -18,3 +15,9 @@ apt update
 apt install -y postgresql-16-pgroonga
 
 apt install -y ffmpeg
+
+./nvm_install.sh
+
+chmod +x ${SRC}/nvm_install.sh
+\. "$HOME/.nvm/nvm.sh"
+nvm install 24
