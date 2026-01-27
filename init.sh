@@ -3,10 +3,11 @@
 apt update
 apt upgrade -y
 apt install -y tzdata curl wget git nano sudo net-tools xz-utils xzip b3sum xxhash unzip
-apt install -y supervisor
+apt install -y supervisor rclone
 
 chmod +x ${SRC}/nvm_install.sh
 ./nvm_install.sh
+# source nvm
 \. "$HOME/.nvm/nvm.sh"
 nvm install 24
 
@@ -21,3 +22,12 @@ apt update
 apt install -y postgresql-16-pgroonga
 
 apt install -y ffmpeg
+
+
+# 内网发现
+apt install samba-common-bin winbind
+# nano /etc/nsswitch.conf
+# hosts:          files dns wins
+# OR:
+sed -i '/^hosts:/ {/wins/! s/$/ wins/}' /etc/nsswitch.conf
+
