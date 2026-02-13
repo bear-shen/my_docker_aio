@@ -17,6 +17,7 @@ WORKDIR ${SRC}
 # Copy the rest of the source files into the image.
 COPY . .
 
+VOLUME ["/var/lib/postgresql/16/main", "/etc/postgresql/16/main",  "/etc/nginx"]
 
 RUN chmod +x ${SRC}/init.sh && \
     ${SRC}/init.sh
