@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   docker_dev:
     image: 0xee/my_docker_aio:latest
