@@ -10,5 +10,7 @@ services:
     volumes:
       - ./nginx:/etc/nginx
       - ./html:/var/www/html
+      - ./postgresql:/var/lib/postgresql/16/main
+      - ./start_service.sh:/myDocker/start_service.sh
     command: ["/bin/bash", "/myDocker/start_service.sh"]
     restart: unless-stopped
