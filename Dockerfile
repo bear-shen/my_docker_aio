@@ -4,7 +4,7 @@
 
 #ffmpeg 6.0才有av1_nvenc的编码
 #因此至少需要ubuntu(nobel/24.04LTS)
-FROM ubuntu:26.04
+FROM ubuntu:24.04
 
 # Use production node environment by default.
 ENV NODE_ENV=production
