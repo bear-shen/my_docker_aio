@@ -3,12 +3,12 @@ services:
     image: 0xee/my_docker_aio:latest
     container_name: my_docker_aio
     ports:
-      - "80:80"
-      - "5432:5432"
+      - "81:80"
+      - "5433:5432"
     volumes:
       - ./nginx:/etc/nginx
       - ./html:/var/www/html
-      - ./postgresql:/var/lib/postgresql/16/main
+      - ./postgresql:/etc/postgresql/16/main
       - ./start_service.sh:/myDocker/start_service.sh
     command: ["/bin/bash", "/myDocker/start_service.sh"]
     restart: unless-stopped
