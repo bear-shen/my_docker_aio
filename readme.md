@@ -10,3 +10,4 @@ with:
 - ffmpeg
 
 
+docker compose up -d

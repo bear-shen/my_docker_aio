@@ -23,6 +23,7 @@ apt install -y postgresql-16-pgroonga
 
 apt install -y ffmpeg
 
+npm install -g typescript @types/node @tsconfig/node24
 
 # 内网发现
 apt install -y samba-common-bin winbind
@@ -31,5 +32,4 @@ apt install -y samba-common-bin winbind
 # OR:
 sed -i '/^hosts:/ {/wins/! s/$/ wins/}' /etc/nsswitch.conf
 
-npm install -g typescript @types/node @tsconfig/node24
 
