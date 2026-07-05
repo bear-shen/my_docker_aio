@@ -25,7 +25,7 @@ apt install -y ffmpeg
 
 
 # 内网发现
-apt install samba-common-bin winbind
+apt install -y samba-common-bin winbind
 # nano /etc/nsswitch.conf
 # hosts:          files dns wins
 # OR:
