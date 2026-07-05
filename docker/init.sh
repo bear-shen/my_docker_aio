@@ -31,3 +31,5 @@ apt install samba-common-bin winbind
 # OR:
 sed -i '/^hosts:/ {/wins/! s/$/ wins/}' /etc/nsswitch.conf
 
+npm install -g typescript @types/node @tsconfig/node24
+

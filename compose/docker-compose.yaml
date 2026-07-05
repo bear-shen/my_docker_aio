@@ -9,7 +9,7 @@ services:
       - ./nginx:/etc/nginx
       - ./html:/var/www/html
       - ./postgresql:/etc/postgresql/16/main
-      - ./php:/etc/php
+      - ./php:/etc/php/8.3
       - ./start_service.sh:/myDocker/start_service.sh
     command: ["/bin/bash", "/myDocker/start_service.sh"]
     restart: unless-stopped
