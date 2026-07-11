@@ -2,7 +2,7 @@
 
 apt update
 apt upgrade -y
-apt install -y tzdata curl wget git nano sudo net-tools xz-utils xzip b3sum xxhash unzip
+apt install -y tzdata curl wget git nano sudo net-tools xz-utils xzip b3sum xxhash unzip zip p7zip-full
 apt install -y supervisor rclone
 
 chmod +x ${SRC}/nvm_install.sh

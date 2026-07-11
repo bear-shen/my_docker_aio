@@ -3,6 +3,7 @@ set -e
 
 chown -R www-data:www-data /var/www/html
 chown -R postgres:postgres /etc/postgresql/16/main
+mkdir -p /var/log/supervisor /var/run/supervisor
 
 echo "[init] starting postgresql..."
 service postgresql start
@@ -15,6 +16,10 @@ service nginx start
 
 echo "[init] starting cron..."
 service cron start
+
+echo "[init] starting supervisord..."
+#exec /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
+service supervisor start
 
 echo "[init] all services started."
 # 保持容器前台运行

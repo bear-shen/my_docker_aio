@@ -1,0 +1,12 @@
+[program:node-app]
+directory=/workspace/node-app
+command=/bin/bash -lc 'npm run start'
+autostart=true
+autorestart=true
+startsecs=5
+stopasgroup=true
+killasgroup=true
+user=root
+stdout_logfile=/var/log/supervisor/node-app.stdout.log
+stderr_logfile=/var/log/supervisor/node-app.stderr.log
+environment=NODE_ENV="production"
