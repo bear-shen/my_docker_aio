@@ -9,8 +9,13 @@ PG_PASSWORD="${POSTGRES_PASSWORD:-Pa55W0rd}"
 chown -R www-data:www-data /var/www/html
 chown -R postgres:postgres "$PG_DIR"
 mkdir -p /var/log/supervisor /var/run/supervisor
-chown -R root:root /etc/cron.d /etc/cron.d/*
-chmod -R 0644 /etc/cron.d /etc/cron.d/*
+
+# cron.d directory must be traversable (x bit), while cron files should be 0644.
+mkdir -p /etc/cron.d
+chown root:root /etc/cron.d
+chmod 0755 /etc/cron.d
+find /etc/cron.d -mindepth 1 -maxdepth 1 -type f -exec chown root:root {} +
+find /etc/cron.d -mindepth 1 -maxdepth 1 -type f -exec chmod 0644 {} +
 
 if [ ! -f "$PG_MARKER" ]; then
   cat > "$PG_HBA" <<'EOF'
