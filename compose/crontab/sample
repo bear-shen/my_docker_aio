@@ -1,4 +1,5 @@
 SHELL=/bin/bash
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PATH=/root/.nvm/versions/node/v24.18.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 * * * * * root touch /crontab.works
+# 0 * * * * root /root/.nvm/versions/node/v24.18.0/bin/npm --prefix /var/www/html/node run stat >> /var/www/html/node/cron.log 2>&1

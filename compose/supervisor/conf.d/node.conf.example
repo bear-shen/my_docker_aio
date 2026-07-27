@@ -1,12 +1,12 @@
 [program:node-app]
-directory=/workspace/node-app
-command=/bin/bash -lc 'npm run start'
+directory=/var/www/html/node
+command=/bin/bash -lc "source /root/.nvm/nvm.sh && npm run --prefix /var/www/html/node/ dev"
 autostart=true
 autorestart=true
 startsecs=5
 stopasgroup=true
 killasgroup=true
 user=root
-stdout_logfile=/var/log/supervisor/node-app.stdout.log
-stderr_logfile=/var/log/supervisor/node-app.stderr.log
+stdout_logfile=/var/www/html/node/supervisor.stdout.log
+stderr_logfile=/var/www/html/node/supervisor.stderr.log
 environment=NODE_ENV="production"
