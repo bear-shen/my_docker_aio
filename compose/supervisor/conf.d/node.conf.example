@@ -7,6 +7,7 @@ startsecs=5
 stopasgroup=true
 killasgroup=true
 user=root
-stdout_logfile=/var/www/html/node/supervisor.stdout.log
+# redirect_stderr=true
 stderr_logfile=/var/www/html/node/supervisor.stderr.log
+stdout_logfile=/var/www/html/node/supervisor.stdout.log
 environment=NODE_ENV="production"

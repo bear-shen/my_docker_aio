@@ -1,3 +1,5 @@
+name: my_compose_aio
+
 services:
   docker_dev:
     image: 0xee/my_docker_aio:latest

@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PG_DIR="/etc/postgresql/16/main"
-PG_HBA="$PG_DIR/pg_hba.conf"
-PG_MARKER="/var/lib/postgresql/16/main/.postgres_password_initialized"
-PG_PASSWORD="${POSTGRES_PASSWORD:-Pa55W0rd}"
-
-chown -R www-data:www-data /var/www/html
-chown -R postgres:postgres "$PG_DIR"
-mkdir -p /var/log/supervisor /var/run/supervisor
-
+# set ownership and permissions for cron.d directory and files
 # cron.d directory must be traversable (x bit), while cron files should be 0644.
 mkdir -p /etc/cron.d
 chown root:root /etc/cron.d
@@ -17,6 +9,18 @@ chmod 0755 /etc/cron.d
 find /etc/cron.d -mindepth 1 -maxdepth 1 -type f -exec chown root:root {} +
 find /etc/cron.d -mindepth 1 -maxdepth 1 -type f -exec chmod 0644 {} +
 
+# set postgresql password and permissions for initial setup
+PG_DIR="/etc/postgresql/16/main"
+PG_HBA="$PG_DIR/pg_hba.conf"
+PG_MARKER="/var/lib/postgresql/16/main/.postgres_password_initialized"
+PG_PASSWORD="${POSTGRES_PASSWORD:-Pa55W0rd}"
+
+# set ownership and permissions for web and postgres directories
+chown -R www-data:www-data /var/www/html
+chown -R postgres:postgres "$PG_DIR"
+mkdir -p /var/log/supervisor /var/run/supervisor
+
+# initialize postgresql password if not already done
 if [ ! -f "$PG_MARKER" ]; then
   cat > "$PG_HBA" <<'EOF'
 # PostgreSQL Client Authentication Configuration File
@@ -27,7 +31,7 @@ local   all             all                                     trust
 host    all             all             0.0.0.0/0               trust
 host    all             all             ::/0                    trust
 local   replication     all                                     peer
-host    replication     all             0.0.0.0/0               trust
+host    replication     all             0.0 .0.0/0               trust
 host    replication     all             ::/0                    trust
 EOF
 fi
@@ -35,6 +39,7 @@ fi
 echo "[init] starting postgresql..."
 service postgresql start
 
+# wait for postgresql to be ready before setting the password
 if [ ! -f "$PG_MARKER" ]; then
   until su - postgres -c "psql -d postgres -tAc 'select 1'" >/dev/null 2>&1; do
     sleep 1
