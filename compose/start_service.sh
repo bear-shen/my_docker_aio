@@ -31,7 +31,7 @@ local   all             all                                     trust
 host    all             all             0.0.0.0/0               trust
 host    all             all             ::/0                    trust
 local   replication     all                                     peer
-host    replication     all             0.0 .0.0/0               trust
+host    replication     all             0.0.0.0/0               trust
 host    replication     all             ::/0                    trust
 EOF
 fi
