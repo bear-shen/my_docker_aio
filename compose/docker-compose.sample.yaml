@@ -14,8 +14,9 @@ services:
       - ./php:/etc/php/8.3
       - ./supervisor:/etc/supervisor
       - ./crontab:/etc/cron.d
-      - ./start_service.sh:/myDocker/start_service.sh
-    command: ["/bin/bash", "/myDocker/start_service.sh"]
+      - ./start.sh:/myDocker/start.sh
+      - ./init.sh:/myDocker/init.sh
+    command: ["/bin/bash", "/myDocker/start.sh"]
     restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: Pa55W0rd
