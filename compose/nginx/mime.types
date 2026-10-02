@@ -86,7 +86,7 @@ types {
 
     video/3gpp                                       3gpp 3gp;
     video/mp2t                                       ts;
-    video/mp4                                        mp4 mkv;
+    video/mp4                                        mp4;
     video/mpeg                                       mpeg mpg;
     video/ogg                                        ogv;
     video/quicktime                                  mov;
