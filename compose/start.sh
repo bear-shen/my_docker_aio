@@ -14,6 +14,8 @@ service php8.3-fpm start
 echo "[init] starting nginx..."
 service nginx start
 
+echo "[init] setting permissions for PostgreSQL..."
+chown -R postgres:postgres /etc/postgresql/16/main
 echo "[init] starting postgresql..."
 service postgresql start
 
