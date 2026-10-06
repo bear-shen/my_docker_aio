@@ -14,6 +14,9 @@ service php8.3-fpm start
 echo "[init] starting nginx..."
 service nginx start
 
+echo "[init] starting postgresql..."
+service postgresql start
+
 echo "[init] starting cron..."
 service cron start
 
