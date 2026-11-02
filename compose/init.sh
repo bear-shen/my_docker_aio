@@ -10,9 +10,9 @@ find /etc/cron.d -mindepth 1 -maxdepth 1 -type f -exec chown root:root {} +
 find /etc/cron.d -mindepth 1 -maxdepth 1 -type f -exec chmod 0644 {} +
 
 # 设置 PostgreSQL 相关目录和文件路径，以及初始化密码的标记文件和密码变量
-PG_DIR="/etc/postgresql/16/main"
+PG_DIR="/etc/postgresql/18/main"
 PG_HBA="$PG_DIR/pg_hba.conf"
-PG_MARKER="/var/lib/postgresql/16/main/.postgres_password_initialized"
+PG_MARKER="/var/lib/postgresql/18/main/.postgres_password_initialized"
 PG_PASSWORD="${POSTGRES_PASSWORD:-Pa55W0rd}"
 
 # set ownership and permissions for web and postgres directories

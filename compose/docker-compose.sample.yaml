@@ -10,8 +10,8 @@ services:
     volumes:
       - ./nginx:/etc/nginx
       - ./html:/var/www/html
-      - ./postgresql:/etc/postgresql/16/main
-      - ./php:/etc/php/8.3
+      - ./postgresql:/etc/postgresql/18/main
+      - ./php:/etc/php/8.5
       - ./supervisor:/etc/supervisor
       - ./crontab:/etc/cron.d
       - ./start.sh:/myCompose/start.sh

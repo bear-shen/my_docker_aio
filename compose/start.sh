@@ -8,14 +8,14 @@ if [ ! -f "/.compose_initialized" ]; then
 fi
 
 # 启动服务
-echo "[init] starting php8.3-fpm..."
-service php8.3-fpm start
+echo "[init] starting php8.5-fpm..."
+service php8.5-fpm start
 
 echo "[init] starting nginx..."
 service nginx start
 
 echo "[init] setting permissions for PostgreSQL..."
-chown -R postgres:postgres /etc/postgresql/16/main
+chown -R postgres:postgres /etc/postgresql/18/main
 echo "[init] starting postgresql..."
 service postgresql start
 
