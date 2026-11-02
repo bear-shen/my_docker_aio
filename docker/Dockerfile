@@ -4,7 +4,7 @@
 
 #ffmpeg 6.0才有av1_nvenc的编码
 #因此至少需要ubuntu(nobel/24.04LTS)
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 
 # Use production node environment by default.
 ENV NODE_ENV=production
@@ -17,9 +17,9 @@ WORKDIR ${SRC}
 # Copy the rest of the source files into the image.
 COPY . .
 
-VOLUME ["/var/lib/postgresql/16/main"]
+VOLUME ["/var/lib/postgresql/18/main"]
 # 写进compose,这里不挂载
-# , "/etc/postgresql/16/main",  "/etc/nginx"
+# , "/etc/postgresql/18/main",  "/etc/nginx"
 
 RUN chmod +x ${SRC}/init.sh && \
     ${SRC}/init.sh
