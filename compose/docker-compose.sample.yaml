@@ -14,8 +14,7 @@ services:
       - ./php:/etc/php/8.5
       - ./supervisor:/etc/supervisor
       - ./crontab:/etc/cron.d
-      - ./start.sh:/myCompose/start.sh
-      - ./init.sh:/myCompose/init.sh
+      - ./:/myCompose/
     command: ["/bin/bash", "/myCompose/start.sh"]
     restart: unless-stopped
     environment:
